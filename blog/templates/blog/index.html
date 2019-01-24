@@ -1,0 +1,10 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<ul>
+	{% for passage in passages %}
+	  <li>
+	    <a href="{% url 'blog:passage' passage.id %}">{{ passage }}</a> 
+	  </li>
+	{% endfor %}
+</ul>
+{% endblock content %}
