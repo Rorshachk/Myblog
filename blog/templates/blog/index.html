@@ -1,6 +1,14 @@
 {% extends "blog/base.html" %}
 {% block content %}
+<a href="topic/PLT">PLT</a>
+<a href="topic/FP">FP</a>
+<a href="topic/Web">Web</a>
+<a href="topic/Infrastructure">Infrastructure</a>
+<a href="topic/ML">ML</a>
+<a href="topic/DL">DL</a>
+<a href="topic/NLP">NLP</a>
 <ul>
+
 	{% for passage in passages %}
 	  <li>
 	    <a href="{% url 'blog:passage' passage.id %}">{{ passage }}</a> 

@@ -1,3 +1,0 @@
-D:\Myblog\obj\Debug\Myblog1.pyproj.CoreCompileInputs.cache
-D:\Myblog\bin\Microsoft.PythonTools.WebRole.dll
-D:\Myblog\bin\wfastcgi.py

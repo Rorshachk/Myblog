@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+<h2>{{ topic }}</h2>
+{% block content %}
+  {% for passage in passages %}
+    <a href="{% url 'blog:passage' passage.id %}">{{ passage }}</a>
+  {% empty %}
+     <p>啥都没有</p>
+  {% endfor %}
+   <br> </br>
+  {% for number in other_passages %}
+      <a href="{% url 'blog:page' topic number %}">{{ number }}</a>
+  {% endfor %} 
+{% endblock content %}
