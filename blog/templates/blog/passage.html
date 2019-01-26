@@ -1,5 +1,23 @@
 {% extends 'blog/base.html' %}
 {% block content %}
-  <h2>{{ title }}</h2>
-  <p>{{ text }}</p>
+  <h2>{{ passage.title }}</h2>
+  <p>{{ passage.text }}</p>
+  {% for comment in comments %}
+    <label>{{ comment.name }}</label>
+	<label>{{ comment.date_added }}</label>
+    <li>{{ comment }}</li>
+    {% empty %}
+      <p>no comment yet</p>
+    {% endfor %}
+
+   <form action="{% url 'blog:passage' passage.id %}" method="post">
+   	  {% csrf_token %}
+   	  <label>name: </label>
+   	  {{ form.name }}
+   	  <label> email: </label>
+   	  {{ form.email }}
+   	  <br></br>
+   	  {{ form.text }}
+   	  <button name="submit">add comment</button>
+   	</form>
 {% endblock content %}

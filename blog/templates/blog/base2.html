@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Rorshach's Blog</title>
+
+	{% materialize_css %}
+	{% materialize_javascript %}
+</head>
+<body>
+	
+</body>
+</html>
+
+
+<p>
+	<a href="{% url 'blog:index' %}">Rorshach</a>
+	<a href="topic/PLT">PLT</a>
+	<a href="topic/FP">FP</a>
+	<a href="topic/Web">Web</a>
+	<a href="topic/Infrastructure">Infrastructure</a>
+	<a href="topic/ML">ML</a>
+	<a href="topic/DL">DL</a>
+	<a href="topic/NLP">NLP</a>
+</p>
+{% block content %}{% endblock content %}

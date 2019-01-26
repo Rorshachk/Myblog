@@ -1,4 +1,15 @@
-<p>
-	<a href="{% url 'blog:index' %}">Rorshach</a>
-</p>
-{% block content %}{% endblock content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Rorshach's Blog</title>
+	{% load static %}
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="{% static "blog/materialize.min.css" %}">
+	<script type="text/javascript" src="/attachments/tuploads/materialize/jquery-2.1.1.min.js"></script>           
+    <script src="{% static "blog/materialize.min.js" %}"></script>       
+</head>
+<body>
+	 <div class="card-panel teal lighten-2"><h3>Hello World!</h3></div>
+</body>
+</html>

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{324b1ebc-4cc5-4156-b21d-902e937b061a}</ProjectGuid>
+    <ProjectGuid>{c84f9707-5ec3-4eac-948e-a5511e786194}</ProjectGuid>
     <ProjectHome />
     <StartupFile>manage.py</StartupFile>
     <SearchPath />
@@ -24,7 +24,10 @@
     <Compile Include="bin\wfastcgi.py" />
     <Compile Include="blog\admin.py" />
     <Compile Include="blog\apps.py" />
+    <Compile Include="blog\forms.py" />
     <Compile Include="blog\migrations\0001_initial.py" />
+    <Compile Include="blog\migrations\0002_comments.py" />
+    <Compile Include="blog\migrations\0003_auto_20190126_1322.py" />
     <Compile Include="blog\migrations\__init__.py" />
     <Compile Include="blog\models.py" />
     <Compile Include="blog\tests.py" />

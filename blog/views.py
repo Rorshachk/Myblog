@@ -3,6 +3,9 @@ from django.shortcuts import render
 # Create your views here.
 from django.shortcuts import render
 from .models import Topic, Passage
+from .forms import CommentForm
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 # Create your views here.
 
 def index(request):
@@ -19,6 +22,7 @@ def index(request):
 def topic(request, topic_text):
     topic = Topic.objects.get(text=topic_text)
     tmp_passages = topic.passage_set.order_by('-date_added')
+    
     passages = []
     other_passages = []
 
@@ -36,7 +40,19 @@ def topic(request, topic_text):
 
 def passage(request, passage_id):
     passage = Passage.objects.get(id=passage_id)
-    context = {'title': passage.title, 'text': passage.text}
+    comments = passage.comment_set.order_by('-date_added')
+    
+    if request.method != 'POST':
+        form = CommentForm()
+    else:
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            new_comment = form.save(commit=False)
+            new_comment.passage = passage
+            new_comment.save()
+            return HttpResponseRedirect(reverse('blog:passage', args=[passage_id]))
+
+    context = {'comments': comments, 'passage': passage, 'form': form}
     return render(request, 'blog/passage.html', context)
 
 
