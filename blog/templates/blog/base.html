@@ -1,15 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Rorshach's Blog</title>
-	{% load static %}
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<link rel="stylesheet" href="{% static "blog/materialize.min.css" %}">
-	<script type="text/javascript" src="/attachments/tuploads/materialize/jquery-2.1.1.min.js"></script>           
-    <script src="{% static "blog/materialize.min.js" %}"></script>       
+  <meta charset="UTF-8">
+  <title>Rorshach's Blog</title>
+  {% load static %}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="{% static "blog/materialize.min.css" %}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="{% static "blog/materialize.min.js" %}"></script>
+  <script>
+  	$(document).ready(function(){
+  		$('.dropdown-button').dropdown({
+      		inDuration: 300,
+      		outDuration: 225,
+      		constrain_width: false, // Does not change width of dropdown to that of the activator
+      		hover: true, // Activate on hover
+      		gutter: 0, // Spacing from edge
+      		belowOrigin: false, // Displays dropdown below the button
+      		alignment: 'left' // Displays dropdown with edge aligned to the left of button
+    	}
+  );
+        
+ 	});
+  </script>
 </head>
 <body>
-	 <div class="card-panel teal lighten-2"><h3>Hello World!</h3></div>
+  
+  <ul id="dropdown1" class="dropdown-content">
+    <li><a href="topic/PLT">PLT</a></li>
+    <li><a href="topic/FP">FP</a></li>
+  </ul>
+  <ul id='dropdown2' class="dropdown-content">
+    <li><a href="topic/Web">Web</a></li>
+    <li><a href="topic/Infrastructure">Infrastructure</a></li>
+  </ul>
+  <ul id='dropdown3' class="dropdown-content">
+	<li><a href="topic/NLP">NLP</a></li>
+	<li><a href="topic/DL">DL</a></li>
+	<li><a href="topic/ML">ML</a></li>
+  </ul>
+  <ul id='dropdown4' class="dropdown-content">
+	<li><a href="passage/2">autobiography</a></li>
+	<li><a href="admin">backstage</a></li>
+  </ul>
+  
+  <nav>
+  	{% load static %}
+  	<div class="nav-wrapper">
+  	  <a href="{% url 'blog:index' %}">
+  	    <img class="responsive-img circle" src="{% static "blog/profile-photo.png" %}" alt="My profile-photo">
+	  </a>
+	  <ul id="nav-mobile" class="right hide-on-med-and-down">
+	    <li><a class="dropdown-button" href="#!" data-target="dropdown1">Theory<i class="material-icons right">arrow_drop_down</i></a></li>
+		<li><a class="dropdown-button" href='#' data-target='dropdown2'>Develop<i class="material-icons right">arrow_drop_down</i></a></li>
+		<li><a class="dropdown-button" href="#" data-target='dropdown3'><i class="material-icons right">arrow_drop_down</i>AI</a></li>
+		<li><a class="dropdown-button" href="#" data-target='dropdown4'>About Me<i class="material-icons right">arrow_drop_down</i></a></li> 
+	  </ul>
+	</div>
+  </nav>
+  
 </body>
 </html>
