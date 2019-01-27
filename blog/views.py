@@ -18,6 +18,8 @@ def index(request):
     context = {'passages': passages}
     return render(request, 'blog/index.html', context)
 
+def admin(request):
+    return HttpResponseRedirect("/admin/")
 
 def topic(request, topic_text):
     topic = Topic.objects.get(text=topic_text)

@@ -8,6 +8,23 @@
   <link rel="stylesheet" href="{% static "blog/materialize.min.css" %}">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="{% static "blog/materialize.min.js" %}"></script>
+  <style>
+  	@font-face
+	{
+		font-family: 'Merienda-Bold';
+		src: url("{% static "blog/Merienda-Bold.ttf" %}");
+	}
+	@font-face
+	{
+		font-family: 'Merienda-Regular';
+		src: url("{% static "blog/Merienda-Regular.ttf" %}");
+	}
+	@font-face
+	{
+		font-family: 'STKAITI';
+		src: url("{% static "blog/STKAITI.ttf" %}");
+	}
+  </style>
   <script>
   	$(document).ready(function(){
   		$('.dropdown-button').dropdown({
@@ -27,28 +44,28 @@
 <body>
   
   <ul id="dropdown1" class="dropdown-content">
-    <li><a href="topic/PLT">PLT</a></li>
-    <li><a href="topic/FP">FP</a></li>
+    <li><a href="{% url 'blog:topic' "PLT" %}">PLT</a></li>
+    <li><a href="{% url 'blog:topic' "FP" %}">FP</a></li>
   </ul>
   <ul id='dropdown2' class="dropdown-content">
-    <li><a href="topic/Web">Web</a></li>
-    <li><a href="topic/Infrastructure">Infrastructure</a></li>
+    <li><a href="{% url 'blog:topic' "Web" %}">Web</a></li>
+    <li><a href="{% url 'blog:topic' "Infrastructure" %}">Infrastructure</a></li>
   </ul>
   <ul id='dropdown3' class="dropdown-content">
-	<li><a href="topic/NLP">NLP</a></li>
-	<li><a href="topic/DL">DL</a></li>
-	<li><a href="topic/ML">ML</a></li>
+	<li><a href="{% url 'blog:topic' "NLP" %}">NLP</a></li>
+	<li><a href="{% url 'blog:topic' "DL" %}">DL</a></li>
+	<li><a href="{% url 'blog:topic' "ML" %}">ML</a></li>
   </ul>
   <ul id='dropdown4' class="dropdown-content">
-	<li><a href="passage/2">autobiography</a></li>
-	<li><a href="admin">backstage</a></li>
+	<li><a href="{% url 'blog:passage' "2" %}">autobiography</a></li>
+	<li><a href="{% url 'blog:admin' %}">backstage</a></li>
   </ul>
   
   <nav>
   	{% load static %}
-  	<div class="nav-wrapper">
+  	<div class="nav-wrapper indigo darken-2">
   	  <a href="{% url 'blog:index' %}">
-  	    <img class="responsive-img circle" src="{% static "blog/profile-photo.png" %}" alt="My profile-photo">
+  	     <a href="{% url 'blog:index' %}" class="brand-logo center" style="font-family: Merienda-Bold;">Rorshach's Blog</a>
 	  </a>
 	  <ul id="nav-mobile" class="right hide-on-med-and-down">
 	    <li><a class="dropdown-button" href="#!" data-target="dropdown1">Theory<i class="material-icons right">arrow_drop_down</i></a></li>
@@ -59,5 +76,33 @@
 	</div>
   </nav>
   
+  <div class="row">
+  	<div class="col s12 m2">
+  	  <div class="card indigo lighten-5">
+  	  	  <div class="container">
+  	  	  	{% load static %}
+  	  	    <div class="card-image">
+	  		  <img src="{% static "blog/profile-photo.png" %}">
+		    </div>
+		    <h4 style="font-family: Merienda-Regular">Rorshach</h4>
+		    <h6 style="font-family: STKAITI">——但行好事，莫问前程</h6>
+		    <br>
+		    <a href="http://www.cnblogs.com/Rorshach/">
+		      <img src="{% static "blog/favicons/cnblogs_favicon.ico" %}"><i>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</i>
+			</a>
+			<a href="https://www.zhihu.com/people/hsm-7-44/activities">
+			  <img src="{% static "blog/favicons/zhihu_favicon.ico" %}"><i>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</i>
+			</a>
+			<a href="https://twitter.com/Rorshac00386408?lang=zh-cn">
+			  <img src="{% static "blog/favicons/twitter_favicon.ico" %}"><i>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</i>
+			</a>
+			<a href="https://github.com/Rorshachk">
+			  <img src="{% static "blog/favicons/github_favicon.ico" %}"><i>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</i>
+			</a>
+			
+		  </div>
+	  </div>
+	</div>
+  </div>
 </body>
 </html>
