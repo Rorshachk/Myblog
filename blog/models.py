@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 from django.db import models
-
+import random
 
 # Create your models here.
 class Topic(models.Model):
@@ -17,6 +17,8 @@ class Passage(models.Model):
     title = models.CharField(max_length=200)
     text = models.TextField()
     date_added = models.DateTimeField()
+
+    pic_url = models.CharField(max_length=100, default="blog/pictures/21.jpg")
 
     def __str__(self):
         return self.title

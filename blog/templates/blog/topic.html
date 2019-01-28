@@ -1,11 +1,32 @@
 {% extends 'blog/base.html' %}
 <h2>{{ topic }}</h2>
 {% block content %}
-  {% for passage in passages %}
-    <a href="{% url 'blog:passage' passage.id %}">{{ passage }}</a>
-  {% empty %}
-     <p>啥都没有</p>
-  {% endfor %}
+<ul>
+	{% load static %}
+	{% for passage in passages %}
+	  <li>
+	    <div class="row">
+        <div class="col s12 m12">
+          <div class="card">
+            <div class="card-image">
+              <img src="{% static passage.pic_url %}">
+            </div>
+            <div class="card-content">
+              <h2><a class="change" href="{% url 'blog:passage' passage.id %}">{{ passage }}</a></h2>
+            </div>
+            <div class="card-action">
+              <img src="{% static "blog/head_pic.jpg" %}" width="42px" height="42px" class="circle">
+              <span style="font-family: Lobster-Regular">{{ passage.date_added }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+	  </li>
+	   {% empty %}
+	     <h2 style="text-align: center;">……暂时还没有东西哦</h2>
+	     <img src="{% static "blog/Nothing.png" %}">
+	{% endfor %}
+</ul>
    <br> </br>
   {% for number in other_passages %}
       <a href="{% url 'blog:page' topic number %}">{{ number }}</a>
