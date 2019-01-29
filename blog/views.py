@@ -6,6 +6,7 @@ from .models import Topic, Passage
 from .forms import CommentForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+import markdown
 # Create your views here.
 
 def index(request):
@@ -34,14 +35,19 @@ def topic(request, topic_text):
     cnt = 0
     for x in range(0, len(tmp_passages), 10):
         cnt += 1
-        other_passages.append(cnt)
+        other_passages.append(str(cnt))
 
-    context = {'topic': topic, 'passages': passages, 'other_passages': other_passages}
+    context = {'topic': topic, 'passages': passages, 'other_passages': other_passages, 'page_number': "1"}
     return render(request, 'blog/topic.html', context)
 
 
 def passage(request, passage_id):
     passage = Passage.objects.get(id=passage_id)
+    passage.text = markdown.markdown(passage.text, extensions=[
+              'markdown.extensions.extra',
+               'markdown.extensions.codehilite',
+               'markdown.extensions.toc',
+           ])
     comments = passage.comment_set.order_by('-date_added')
     
     if request.method != 'POST':
@@ -73,5 +79,6 @@ def page(request, topic_text, page_number):
         cnt += 1
         other_passages.append(str(cnt))
     
-    context = {'topic':topic, 'passages':passages, 'other_passages': other_passages}
+    context = {'topic':topic, 'passages':passages, 'other_passages': other_passages,
+               'page_number': page_number}
     return render(request, 'blog/topic.html', context)

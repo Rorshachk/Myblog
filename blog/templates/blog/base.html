@@ -1,23 +1,24 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Rorshach's Blog</title>
-  {% load static %}
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="{% static "blog/materialize.min.css" %}">
+  <link rel="stylesheet" type="text/css" href="{% static "blog/code.css" %}">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="{% static "blog/materialize.min.js" %}"></script>
   <style>
-  h2{ font-family: GBK; }
-  a.change{ color:#000000;  }
-  a.change:hover{ color:#e64a19;}
-  a.change:active{ color:#e64a19; }
-  body 
+    h2{ font-family: GBK; }
+    a.change{ color:#000000;  }
+    a.change:hover{ color:#e64a19;}
+    a.change:active{ color:#e64a19; }
+    body 
 	{
 		background-color:#bbdefb;
 	}
-  @font-face
+    @font-face
 	{
 		font-family: 'Merienda-Bold';
 		src: url("{% static "blog/Merienda-Bold.ttf" %}");
@@ -54,8 +55,7 @@
       		belowOrigin: false, // Displays dropdown below the button
       		alignment: 'left' // Displays dropdown with edge aligned to the left of button
     	}
-  );
-        
+  );     
  	});
   </script>
 </head>
@@ -80,7 +80,6 @@
   </ul>
   
   <nav>
-  	{% load static %}
   	<div class="nav-wrapper indigo darken-2">
   	  <a href="{% url 'blog:index' %}">
   	     <a href="{% url 'blog:index' %}" class="brand-logo center" style="font-family: Merienda-Bold;">Rorshach's Blog</a>
@@ -96,9 +95,8 @@
   
   <div class="row">
   	<div class="col s12 m2">
-  	  <div class="card indigo lighten-5">
+  	  <div class="card stuck indigo lighten-5">
   	  	  <div class="container">
-  	  	  	{% load static %}
   	  	    <div class="card-image">
 	  		  <img src="{% static "blog/profile-photo.png" %}">
 		    </div>

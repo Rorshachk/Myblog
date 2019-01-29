@@ -2,7 +2,8 @@ from django.db import models
 
 # Create your models here.
 from django.db import models
-import random
+from mdeditor.fields import MDTextField
+
 
 # Create your models here.
 class Topic(models.Model):
@@ -15,7 +16,7 @@ class Topic(models.Model):
 class Passage(models.Model):
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
-    text = models.TextField()
+    text = MDTextField()
     date_added = models.DateTimeField()
 
     pic_url = models.CharField(max_length=100, default="blog/pictures/21.jpg")
