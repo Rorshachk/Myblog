@@ -1,6 +1,6 @@
 {% extends 'blog/base.html' %}
 {% load static gravatar %}
-{% block content %}
+{% block header %}
 <div class="row">
   <div class="col s12 m12">
     <div class="card">
@@ -10,7 +10,14 @@
         <div class="card-image">
           <img src="{% static passage.pic_url %}">
         </div>
-        <li class="divider"></li>
+    </div>
+  </div>
+</div>
+{% endblock header %}
+{% block content %}
+<div class="row">
+  <div class="col s12 m12">
+    <div class="card">
         <div class="card-action">
             <span style=" font-size: 20px;">{{ passage.text|safe }}</span>
         </div>
@@ -24,8 +31,9 @@
 <ul>
   {% for comment in comments %}
   <li>
-    <div class="row">
+    <div class="row" >
       <div class="col s12 m12">
+      	<div style="border-radius: 20px;">
         <div class="card hoverable">
         	<ul>
             <li class="grey lighten-4"><div class="card-action">
@@ -40,18 +48,16 @@
          	<li class="divider"></li>
          	<li>
             <div class="card-content">
-              <span style="font-size: 20px">{{ comment }}</span>>
-            </div></li>
+              <span style="font-size: 20px">{{ comment }}</span>
+            </div></li></ul>
         </div>
       </div>
-    </div>
+    </div></div>
   </li>
   {% endfor %}
 </ul>
   <div class="card cyan lighten-5">
-  	<br>
-  	<h6 style="text-align: center;"><i class="material-icons">mode_edit</i>欢迎留言</h6>
-  	<br>
+  	<h6 style="text-align: center; padding: 10px"><i class="material-icons">mode_edit</i>欢迎留言</h6>
   </div>
 
     <form action="{% url 'blog:passage' passage.id %}" method="post" class="col s12">

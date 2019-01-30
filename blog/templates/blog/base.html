@@ -10,7 +10,16 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src="{% static "blog/materialize.min.js" %}"></script>
   <style>
-    h2{ font-family: GBK; }
+  .stuck{
+    position: fixed;
+    top: 60px;
+  }
+  .card-pos{
+    position: relative;
+    left: 300px
+  }
+
+  h2{ font-family: GBK; }
     a.change{ color:#000000;  }
     a.change:hover{ color:#e64a19;}
     a.change:active{ color:#e64a19; }
@@ -94,6 +103,7 @@
   </nav>
   
   <div class="row">
+    <div class="stuck">
   	<div class="col s12 m2">
   	  <div class="card stuck indigo lighten-5">
   	  	  <div class="container">
@@ -119,8 +129,10 @@
 		  </div>
 	  </div>
 	</div>
+  </div>
             
 	<div class="col s12 m10">
+    <div class="card-pos">
 	  <div class="container">
 	    <div class="page-header">
 	  	  {% block header %}
@@ -132,6 +144,7 @@
 	    </div>
 	  </div>
     </div>
+  </div>
   </div>
   <footer class="page-footer indigo">
     <div class="container">
