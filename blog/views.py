@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 # Create your views here.
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Topic, Passage
 from .forms import CommentForm
 from django.http import HttpResponseRedirect
@@ -23,7 +23,7 @@ def admin(request):
     return HttpResponseRedirect("/admin/")
 
 def topic(request, topic_text):
-    topic = Topic.objects.get(text=topic_text)
+    topic = get_object_or_404(Topic, text=topic_text)
     tmp_passages = topic.passage_set.order_by('-date_added')
     
     passages = []
@@ -42,7 +42,7 @@ def topic(request, topic_text):
 
 
 def passage(request, passage_id):
-    passage = Passage.objects.get(id=passage_id)
+    passage = get_object_or_404(Passage, id=passage_id)
     passage.text = markdown.markdown(passage.text, extensions=[
               'markdown.extensions.extra',
                'markdown.extensions.codehilite',
@@ -65,7 +65,7 @@ def passage(request, passage_id):
 
 
 def page(request, topic_text, page_number):
-    topic = Topic.objects.get(text=topic_text)
+    topic = get_object_or_404(Topic, text=topic_text)
     tmp_passages = topic.passage_set.order_by('-date_added')
     start = (int(page_number) - 1) * 10
     passages = []
