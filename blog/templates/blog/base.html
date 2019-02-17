@@ -1,9 +1,11 @@
 {% load static %}
+{% load mathjax %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Rorshach's Blog</title>
+  {% mathjax_scripts %}
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="{% static "blog/materialize.min.css" %}">
   <link rel="stylesheet" type="text/css" href="{% static "blog/code.css" %}">
@@ -24,24 +26,24 @@
     a.change:hover{ color:#e64a19;}
     a.change:active{ color:#e64a19; }
     body 
-	{
-		background-color:#bbdefb;
-	}
+  {
+    background-color:#bbdefb;
+  }
     @font-face
-	{
-		font-family: 'Merienda-Bold';
-		src: url("{% static "blog/Merienda-Bold.ttf" %}");
-	}
-	@font-face
-	{
-		font-family: 'Merienda-Regular';
-		src: url("{% static "blog/Merienda-Regular.ttf" %}");
-	}
-	@font-face
-	{
-		font-family: 'STKAITI';
-		src: url("{% static "blog/STKAITI.ttf" %}");
-	}
+  {
+    font-family: 'Merienda-Bold';
+    src: url("{% static "blog/Merienda-Bold.ttf" %}");
+  }
+  @font-face
+  {
+    font-family: 'Merienda-Regular';
+    src: url("{% static "blog/Merienda-Regular.ttf" %}");
+  }
+  @font-face
+  {
+    font-family: 'STKAITI';
+    src: url("{% static "blog/STKAITI.ttf" %}");
+  }
   @font-face
   {
     font-family: 'Lobster-Regular';
@@ -54,18 +56,18 @@
   }
   </style>
   <script>
-  	$(document).ready(function(){
-  		$('.dropdown-button').dropdown({
-      		inDuration: 300,
-      		outDuration: 225,
-      		constrain_width: false, // Does not change width of dropdown to that of the activator
-      		hover: true, // Activate on hover
-      		gutter: 0, // Spacing from edge
-      		belowOrigin: false, // Displays dropdown below the button
-      		alignment: 'left' // Displays dropdown with edge aligned to the left of button
-    	}
+    $(document).ready(function(){
+      $('.dropdown-button').dropdown({
+          inDuration: 300,
+          outDuration: 225,
+          constrain_width: false, // Does not change width of dropdown to that of the activator
+          hover: true, // Activate on hover
+          gutter: 0, // Spacing from edge
+          belowOrigin: false, // Displays dropdown below the button
+          alignment: 'left' // Displays dropdown with edge aligned to the left of button
+      }
   );     
- 	});
+  });
   </script>
 </head>
 <body>
@@ -79,70 +81,70 @@
     <li><a href="{% url 'blog:topic' "Infrastructure" %}">Infrastructure</a></li>
   </ul>
   <ul id='dropdown3' class="dropdown-content">
-	<li><a href="{% url 'blog:topic' "NLP" %}">NLP</a></li>
-	<li><a href="{% url 'blog:topic' "DL" %}">DL</a></li>
-	<li><a href="{% url 'blog:topic' "ML" %}">ML</a></li>
+  <li><a href="{% url 'blog:topic' "NLP" %}">NLP</a></li>
+  <li><a href="{% url 'blog:topic' "DL" %}">DL</a></li>
+  <li><a href="{% url 'blog:topic' "ML" %}">ML</a></li>
   </ul>
   <ul id='dropdown4' class="dropdown-content">
-	<li><a href="{% url 'blog:passage' "2" %}">Autobiography</a></li>
-	<li><a href="{% url 'blog:admin' %}">Backstage</a></li>
+  <li><a href="{% url 'blog:passage' "2" %}">Autobiography</a></li>
+  <li><a href="{% url 'blog:admin' %}">Backstage</a></li>
   </ul>
   
   <nav>
-  	<div class="nav-wrapper indigo darken-2">
-  	  <a href="{% url 'blog:index' %}">
-  	     <a href="{% url 'blog:index' %}" class="brand-logo center" style="font-family: Merienda-Bold;">Rorshach's Blog</a>
-	  </a>
-	  <ul id="nav-mobile" class="right hide-on-med-and-down">
-	    <li><a class="dropdown-button" href="#!" data-target="dropdown1">Theory<i class="material-icons right">arrow_drop_down</i></a></li>
-		<li><a class="dropdown-button" href='#' data-target='dropdown2'>Develop<i class="material-icons right">arrow_drop_down</i></a></li>
-		<li><a class="dropdown-button" href="#" data-target='dropdown3'><i class="material-icons right">arrow_drop_down</i>AI</a></li>
-		<li><a class="dropdown-button" href="#" data-target='dropdown4'>About Me<i class="material-icons right">arrow_drop_down</i></a></li> 
-	  </ul>
-	</div>
+    <div class="nav-wrapper indigo darken-2">
+      <a href="{% url 'blog:index' %}">
+         <a href="{% url 'blog:index' %}" class="brand-logo center" style="font-family: Merienda-Bold;">Rorshach's Blog</a>
+    </a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a class="dropdown-button" href="#!" data-target="dropdown1">Theory<i class="material-icons right">arrow_drop_down</i></a></li>
+    <li><a class="dropdown-button" href='#' data-target='dropdown2'>Develop<i class="material-icons right">arrow_drop_down</i></a></li>
+    <li><a class="dropdown-button" href="#" data-target='dropdown3'><i class="material-icons right">arrow_drop_down</i>AI</a></li>
+    <li><a class="dropdown-button" href="#" data-target='dropdown4'>About Me<i class="material-icons right">arrow_drop_down</i></a></li> 
+    </ul>
+  </div>
   </nav>
   
   <div class="row">
     <div class="stuck">
-  	<div class="col s12 m2">
-  	  <div class="card stuck indigo lighten-5">
-  	  	  <div class="container">
-  	  	    <div class="card-image">
-	  		  <img src="{% static "blog/profile-photo.png" %}">
-		    </div>
-		    <h4 style="font-family: Merienda-Regular">Rorshach</h4>
-		    <h6 style="font-family: STKAITI">——但行好事，莫问前程</h6>
-		    <br>
-		    <a href="http://www.cnblogs.com/Rorshach/">
-		      <img src="{% static "blog/favicons/cnblogs_favicon.ico" %}"><i>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</i>
-			</a>
-			<a href="https://www.zhihu.com/people/hsm-7-44/activities">
-			  <img src="{% static "blog/favicons/zhihu_favicon.ico" %}"><i>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</i>
-			</a>
-			<a href="https://twitter.com/Rorshac00386408?lang=zh-cn">
-			  <img src="{% static "blog/favicons/twitter_favicon.ico" %}"><i>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</i>
-			</a>
-			<a href="https://github.com/Rorshachk">
-			  <img src="{% static "blog/favicons/github_favicon.ico" %}"><i>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</i>
-			</a>
-			
-		  </div>
-	  </div>
-	</div>
+    <div class="col s12 m2">
+      <div class="card stuck indigo lighten-5">
+          <div class="container">
+            <div class="card-image">
+          <img src="{% static "blog/profile-photo.png" %}">
+        </div>
+        <h4 style="font-family: Merienda-Regular">Rorshach</h4>
+        <h6 style="font-family: STKAITI">——但行好事，莫问前程</h6>
+        <br>
+        <a href="http://www.cnblogs.com/Rorshach/">
+          <img src="{% static "blog/favicons/cnblogs_favicon.ico" %}"><i>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</i>
+      </a>
+      <a href="https://www.zhihu.com/people/hsm-7-44/activities">
+        <img src="{% static "blog/favicons/zhihu_favicon.ico" %}"><i>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</i>
+      </a>
+      <a href="https://twitter.com/Rorshac00386408?lang=zh-cn">
+        <img src="{% static "blog/favicons/twitter_favicon.ico" %}"><i>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</i>
+      </a>
+      <a href="https://github.com/Rorshachk">
+        <img src="{% static "blog/favicons/github_favicon.ico" %}"><i>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</i>
+      </a>
+      
+      </div>
+    </div>
+  </div>
   </div>
             
-	<div class="col s12 m10">
+  <div class="col s12 m10">
     <div class="card-pos">
-	  <div class="container">
-	    <div class="page-header">
-	  	  {% block header %}
-	  	  {% endblock header %}
-	    </div>
-	    <div>
-	  	  {% block content %}
-	  	  {% endblock content %}
-	    </div>
-	  </div>
+    <div class="container">
+      <div class="page-header">
+        {% block header %}
+        {% endblock header %}
+      </div>
+      <div>
+        {% block content %}
+        {% endblock content %}
+      </div>
+    </div>
     </div>
   </div>
   </div>

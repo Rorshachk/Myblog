@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'tsr=7x$(i!5f8-p&vn^prh9(o6=wnnl&10x1*3+sojpcy#18-^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['localhost']
 
@@ -40,7 +40,10 @@ INSTALLED_APPS = [
 
     'blog',
     'mdeditor',
+    'pydjax'
 ]
+
+MATHJAX_ENABLED=True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -75,7 +78,7 @@ WSGI_APPLICATION = 'Myblog.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-'''
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -93,6 +96,7 @@ DATABASES = {
         'PORT': '3306',
     }
 }
+'''
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 

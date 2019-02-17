@@ -1,5 +1,7 @@
 Django==2.1.5
 django-mdeditor==0.1.13
 Markdown==3.0.1
+mysqlclient==1.4.1
+pydjax==0.2
 Pygments==2.3.1
 pytz==2018.9
