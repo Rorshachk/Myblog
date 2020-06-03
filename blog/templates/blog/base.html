@@ -1,9 +1,11 @@
 {% load static %}
+{% load mathjax %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Rorshach's Blog</title>
+  {% mathjax_scripts %}
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="{% static "blog/materialize.min.css" %}">
   <link rel="stylesheet" type="text/css" href="{% static "blog/code.css" %}">
@@ -18,8 +20,8 @@
     position: relative;
     left: 300px
   }
+  pre{ width:100%; overflow: auto; overflow-y:hidden}  
 
-  h2{ font-family: GBK; }
     a.change{ color:#000000;  }
     a.change:hover{ color:#e64a19;}
     a.change:active{ color:#e64a19; }

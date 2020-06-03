@@ -24,5 +24,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'', include(('blog.urls', 'blog'), namespace='blog')),
     url(r'mdeditor/', include('mdeditor.urls')),
-    url(r'^favicon.ico$',RedirectView.as_view(url=r'static/favicon.ico')),
+    url(r'^favicon.ico$', RedirectView.as_view(url=r'static/favicon.ico')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
